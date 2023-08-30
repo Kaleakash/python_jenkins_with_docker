@@ -5,20 +5,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], 
-                userRemoteConfigs: [[url: 'https://github.com/Kaleakash/python_jenkins_file.git']]])
-            }
-        }
-        stage("Installation"){
-            steps{
-                sh 'docker exec -it -u f5787dfbdfa2 /bin/bash'
-                sh 'apt-get update'
-                sh 'apt-get install python3'
-                sh 'apt-get install python3-pip'    
+                userRemoteConfigs: [[url: 'https://github.com/Kaleakash/python_jenkins_with_docker.git']]])
             }
         }
         stage('Build') {
             steps {
-                git branch: 'master', url: 'https://github.com/Kaleakash/python_jenkins_file.git'
+                git branch: 'master', url: 'https://github.com/Kaleakash/python_jenkins_with_docker.git'
                 sh 'python3 ops.py'
             }
         }
