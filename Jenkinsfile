@@ -10,7 +10,7 @@ pipeline {
         }
         stage("Installation"){
             steps{
-                sh 'exec -it -u 0 f5787dfbdfa2 /bin/bash'
+                sh 'docker exec -it -u f5787dfbdfa2 /bin/bash'
                 sh 'apt-get update'
                 sh 'apt-get install python3'
                 sh 'apt-get install python3-pip'    
