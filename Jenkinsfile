@@ -11,12 +11,12 @@ pipeline {
         stage('Build') {
             steps {
                 git branch: 'master', url: 'https://github.com/Kaleakash/python_jenkins_with_docker.git'
-                sh 'python ops.py'
+                sh 'python3 ops.py'
             }
         }
         stage('Test') {
             steps {
-                 sh 'python -m pytest'
+                 sh 'python3 -m pytest'
             }
         }
     }
